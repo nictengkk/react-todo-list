@@ -16,11 +16,11 @@ export class TodoList extends Component {
     return (
       <div className="container">
         <h1>Todo List</h1>
-        <ul className="list-group">
+        <form>
           {data.map(item => (
             <TodoItem name={item.name} isCompleted={item.isCompleted}/>
           ))}
-        </ul>
+        </form>
       </div>
     );
   }
