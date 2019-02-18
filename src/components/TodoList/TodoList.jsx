@@ -17,8 +17,8 @@ export class TodoList extends Component {
       <div className="container">
         <h1>Todo List</h1>
         <form>
-          {data.map(item => (
-            <TodoItem name={item.name} isCompleted={item.isCompleted}/>
+          {data.map((item, index) => (
+            <TodoItem name={item.name} isCompleted={item.isCompleted} key={index}/>
           ))}
         </form>
       </div>
