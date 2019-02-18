@@ -6,7 +6,7 @@ function TodoItem(props) {
     <div className="input-group mb-3">
       <div className="input-group-prepend">
         <div className="input-group-text">
-          <input type="checkbox"/>
+          <input type="checkbox" checked={isCompleted}/>
         </div>
       </div>
       <input value={name} type="text" className="form-control" disabled/>
