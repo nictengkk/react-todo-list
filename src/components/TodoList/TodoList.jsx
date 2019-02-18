@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TodoItem from '../TodoItem/TodoItem';
 
 export class TodoList extends Component {
   state = {
@@ -17,7 +18,7 @@ export class TodoList extends Component {
         <h1>Todo List</h1>
         <ul className="list-group">
           {data.map(item => (
-            <li className="list-group-item">{item.name}</li>
+            <TodoItem name={item.name} isCompleted={item.isCompleted}/>
           ))}
         </ul>
       </div>
