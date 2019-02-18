@@ -10,9 +10,16 @@ export class TodoList extends Component {
   }
 
   render() {
+    const { data } = this.state;
+
     return (
-      <div>
+      <div className="container">
         <h1>Todo List</h1>
+        <ul className="list-group">
+          {data.map(item => (
+            <li className="list-group-item">{item.name}</li>
+          ))}
+        </ul>
       </div>
     );
   }
