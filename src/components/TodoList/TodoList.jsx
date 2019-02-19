@@ -22,6 +22,7 @@ export class TodoList extends Component {
   }
 
   handleCreate = () => {
+    if(!this.state.newTask.name) return
     const items = [...this.state.data];
     items.push({...this.state.newTask});
     this.setState({ data: items });
