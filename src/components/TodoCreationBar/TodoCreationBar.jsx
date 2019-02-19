@@ -1,7 +1,7 @@
 import React from "react";
 
 function TodoCreationBar(props) {
-  const {handleCreate, handleCreateInput} = props
+  const { handleCreate, handleCreateInput } = props;
   return (
     <div className="input-group mb-3">
       <input
@@ -13,10 +13,10 @@ function TodoCreationBar(props) {
       <div className="input-group-append">
         <button
           onClick={handleCreate}
-          className="btn btn-primary"
+          className="btn btn-success"
           type="button"
         >
-          Create
+           + 
         </button>
       </div>
     </div>

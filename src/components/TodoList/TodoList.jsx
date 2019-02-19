@@ -38,7 +38,6 @@ export class TodoList extends Component {
       <div className="container">
         <h1>Todo List</h1>
         <form>
-          <TodoCreationBar handleCreate={this.handleCreate} handleCreateInput={this.handleCreateInput}/>
           {data.map((item, index) => (
             <TodoItem
               name={item.name}
@@ -47,6 +46,7 @@ export class TodoList extends Component {
               key={index}
             />
           ))}
+          <TodoCreationBar handleCreate={this.handleCreate} handleCreateInput={this.handleCreateInput}/>
         </form>
       </div>
     );
