@@ -4,7 +4,8 @@ import TodoCreationBar from "../TodoCreationBar/TodoCreationBar";
 
 export class TodoList extends Component {
   state = {
-    data: []
+    data: [],
+    newTask: {}
   };
 
   handleCheckbox = clicked => {
@@ -12,6 +13,17 @@ export class TodoList extends Component {
     const foundItem = items.find(item => item.name === clicked.name);
     //toggle isCompleted
     foundItem.isCompleted = !foundItem.isCompleted;
+    this.setState({ data: items });
+  };
+
+  handleCreateInput = (event) => {
+    const task = event.target.value
+    this.setState({newTask: { name: task, isCompleted: false }})
+  }
+
+  handleCreate = () => {
+    const items = [...this.state.data];
+    items.push({...this.state.newTask});
     this.setState({ data: items });
   };
 
@@ -26,7 +38,7 @@ export class TodoList extends Component {
       <div className="container">
         <h1>Todo List</h1>
         <form>
-          <TodoCreationBar />
+          <TodoCreationBar handleCreate={this.handleCreate} handleCreateInput={this.handleCreateInput}/>
           {data.map((item, index) => (
             <TodoItem
               name={item.name}
