@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import TodoItem from '../TodoItem/TodoItem';
+import TodoItem from "../TodoItem/TodoItem";
+import TodoCreationBar from "../TodoCreationBar/TodoCreationBar";
 
 export class TodoList extends Component {
   state = {
@@ -25,6 +26,7 @@ export class TodoList extends Component {
       <div className="container">
         <h1>Todo List</h1>
         <form>
+          <TodoCreationBar />
           {data.map((item, index) => (
             <TodoItem
               name={item.name}
