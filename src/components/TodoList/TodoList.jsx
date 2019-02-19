@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import TodoItem from "../TodoItem/TodoItem";
 import TodoCreationBar from "../TodoCreationBar/TodoCreationBar";
+import TodoFilterBar from "../TodoFilterBar/TodoFilterBar";
 
 export class TodoList extends Component {
   state = {
     data: [],
-    newTask: {}
+    newTask: {},
+    searchTerm: ""
   };
 
   handleCheckbox = clicked => {
@@ -16,16 +18,21 @@ export class TodoList extends Component {
     this.setState({ data: items });
   };
 
-  handleCreateInput = (event) => {
-    const task = event.target.value
-    this.setState({newTask: { name: task, isCompleted: false }})
-  }
+  handleCreateInput = event => {
+    const task = event.target.value;
+    this.setState({ newTask: { name: task, isCompleted: false } });
+  };
 
   handleCreate = () => {
-    if(!this.state.newTask.name) return
+    if (!this.state.newTask.name) return;
     const items = [...this.state.data];
-    items.push({...this.state.newTask});
+    items.push({ ...this.state.newTask });
     this.setState({ data: items });
+  };
+
+  handleFilter = event => {
+    const searchTerm = event.target.value;
+    this.setState({searchTerm});
   };
 
   componentDidMount() {
@@ -33,13 +40,14 @@ export class TodoList extends Component {
   }
 
   render() {
-    const { data } = this.state;
-
+    const { data, searchTerm} = this.state;
+    const filteredList = data.filter(item => item.name.includes(searchTerm))
     return (
       <div className="container">
         <h1>Todo List</h1>
         <form>
-          {data.map((item, index) => (
+          <TodoFilterBar handleChange={this.handleFilter}/>
+          {filteredList.map((item, index) => (
             <TodoItem
               name={item.name}
               isCompleted={item.isCompleted}
@@ -47,7 +55,10 @@ export class TodoList extends Component {
               key={index}
             />
           ))}
-          <TodoCreationBar handleCreate={this.handleCreate} handleCreateInput={this.handleCreateInput}/>
+          <TodoCreationBar
+            handleCreate={this.handleCreate}
+            handleCreateInput={this.handleCreateInput}
+          />
         </form>
       </div>
     );
