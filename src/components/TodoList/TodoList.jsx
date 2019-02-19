@@ -6,6 +6,14 @@ export class TodoList extends Component {
     data: []
   };
 
+  handleCheckbox = clicked => {
+    const items = [...this.state.data];
+    const foundItem = items.find(item => item.name === clicked.name);
+    //toggle isCompleted
+    foundItem.isCompleted = !foundItem.isCompleted;
+    this.setState({ data: items });
+  };
+
   componentDidMount() {
     this.setState({ data: this.props.data });
   }
@@ -18,7 +26,12 @@ export class TodoList extends Component {
         <h1>Todo List</h1>
         <form>
           {data.map((item, index) => (
-            <TodoItem name={item.name} isCompleted={item.isCompleted} key={index}/>
+            <TodoItem
+              name={item.name}
+              isCompleted={item.isCompleted}
+              onChange={() => this.handleCheckbox(item)}
+              key={index}
+            />
           ))}
         </form>
       </div>
