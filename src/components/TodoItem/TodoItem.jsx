@@ -1,10 +1,16 @@
 import React from "react";
+import "./TodoItem.css";
 
 function TodoItem({ name, isCompleted, handleClick, id }) {
+  const getClass = () => {
+    return isCompleted ? "strikethrough" : "";
+  };
+
   return (
     <div>
       <li
-        style={{ textDecoration: isCompleted && "line-through" }}
+        className={getClass(isCompleted)}
+        // style={{ textDecoration: isCompleted && "line-through" }}
         onClick={() => handleClick(id)}
       >
         {name}
