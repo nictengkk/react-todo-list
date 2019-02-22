@@ -1,12 +1,39 @@
 import React, { Component } from "react";
+import TodoItem from "../TodoItem/TodoItem";
 
 export class TodoList extends Component {
   state = {
     data: this.props.data
   };
 
+  handleClick = itemId => {
+    const { data } = this.state;
+    const updatedState = data.map(todo => {
+      if (todo.id === itemId) {
+        const brandNew = { ...todo };
+        brandNew.isCompleted = !brandNew.isCompleted;
+        return brandNew;
+      }
+      return todo;
+    });
+    this.setState({ data: updatedState });
+  };
+
   render() {
-    return <div>Test</div>;
+    const { data } = this.state;
+    return (
+      <ul>
+        {data.map((todo, index) => (
+          <TodoItem
+            key={todo.id}
+            id={todo.id}
+            name={todo.name}
+            isCompleted={todo.isCompleted}
+            handleClick={this.handleClick}
+          />
+        ))}
+      </ul>
+    );
   }
 }
 
