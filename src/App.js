@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import { todos } from "./seedData";
+import { TodoList } from "./components/TodoList/TodoList";
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <h1>Todo List</h1>
-      </div>
+        <TodoList data={todos} />
+      </React.Fragment>
     );
   }
 }
