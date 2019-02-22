@@ -2,25 +2,8 @@ import React, { Component } from "react";
 import TodoItem from "../TodoItem/TodoItem";
 
 export class TodoList extends Component {
-  state = {
-    data: this.props.data
-  };
-
-  handleClick = itemId => {
-    const { data } = this.state;
-    const updatedState = data.map(todo => {
-      if (todo.id === itemId) {
-        const brandNew = { ...todo };
-        brandNew.isCompleted = !brandNew.isCompleted; //changing isCompleted from true to false when clicked
-        return brandNew;
-      }
-      return todo;
-    });
-    this.setState({ data: updatedState });
-  };
-
   render() {
-    const { data } = this.state;
+    const { data, handleClick } = this.props;
     return (
       <ul>
         {data.map(todo => (
@@ -29,7 +12,7 @@ export class TodoList extends Component {
             id={todo.id}
             name={todo.name}
             isCompleted={todo.isCompleted}
-            handleClick={this.handleClick}
+            handleClick={handleClick}
           />
         ))}
       </ul>

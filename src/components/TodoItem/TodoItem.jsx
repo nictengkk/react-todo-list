@@ -3,7 +3,7 @@ import "./TodoItem.css";
 
 function TodoItem({ name, isCompleted, handleClick, id }) {
   const getClass = () => {
-    return isCompleted ? "strikethrough" : "";
+    return isCompleted ? "strikethrough" : undefined;
   };
 
   return (
