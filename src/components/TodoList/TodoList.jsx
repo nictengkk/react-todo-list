@@ -11,7 +11,7 @@ export class TodoList extends Component {
     const updatedState = data.map(todo => {
       if (todo.id === itemId) {
         const brandNew = { ...todo };
-        brandNew.isCompleted = !brandNew.isCompleted;
+        brandNew.isCompleted = !brandNew.isCompleted; //changing isCompleted from true to false when clicked
         return brandNew;
       }
       return todo;
@@ -23,7 +23,7 @@ export class TodoList extends Component {
     const { data } = this.state;
     return (
       <ul>
-        {data.map((todo, index) => (
+        {data.map(todo => (
           <TodoItem
             key={todo.id}
             id={todo.id}
