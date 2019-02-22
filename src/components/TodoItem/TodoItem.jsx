@@ -4,7 +4,7 @@ function TodoItem({ name, isCompleted, handleClick, id }) {
   return (
     <div>
       <li
-        style={{ "text-decoration": isCompleted && "line-through" }}
+        style={{ textDecoration: isCompleted && "line-through" }}
         onClick={() => handleClick(id)}
       >
         {name}
