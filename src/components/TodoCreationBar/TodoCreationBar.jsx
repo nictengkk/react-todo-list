@@ -1,6 +1,6 @@
 import React from "react";
 
-function TodoCreationBar({ handleSubmit, handleChange, value }) {
+function TodoCreationBar({ handleSubmit, handleChange, filterBarValue }) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="input-group mb-1">
@@ -8,7 +8,7 @@ function TodoCreationBar({ handleSubmit, handleChange, value }) {
           className="form-control"
           placeholder="Create New Task"
           type="text"
-          value={value}
+          value={filterBarValue}
           onChange={handleChange}
         />
         <div className="input-group-append">
@@ -17,7 +17,7 @@ function TodoCreationBar({ handleSubmit, handleChange, value }) {
             type="submit"
             id="button-addon2"
           >
-            SUBMIT
+            Add Task!
           </button>
         </div>
       </div>

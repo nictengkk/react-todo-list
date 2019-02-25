@@ -3,7 +3,7 @@ import cloneDeep from "lodash/cloneDeep";
 import { todos } from "./seedData";
 import TodoList from "./components/TodoList/TodoList";
 import TodoCreationBar from "./components/TodoCreationBar/TodoCreationBar";
-import TodoFilterBar from "./components/ToDoFilterBar/TodoFilterBar";
+import TodoFilterBar from "./components/TodoFilterBar/TodoFilterBar";
 
 class App extends Component {
   state = {
