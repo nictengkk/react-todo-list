@@ -3,11 +3,13 @@ import "./TodoItem.css";
 
 function TodoItem({ name, isCompleted, handleClick, id }) {
   const getClass = () => {
-    return isCompleted ? "strikethrough" : undefined;
+    return isCompleted
+      ? "strikethrough list-group-item toDoItemFont"
+      : "list-group-item toDoItemFont";
   };
 
   return (
-    <div>
+    <div className="container">
       <li
         className={getClass(isCompleted)}
         // style={{ textDecoration: isCompleted && "line-through" }}

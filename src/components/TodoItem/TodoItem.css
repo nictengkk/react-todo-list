@@ -1,3 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Luckiest+Guy);
+
 .strikethrough {
   text-decoration: line-through;
+}
+
+.toDoItemFont {
+  font-family: "Luckiest Guy", cursive;
 }
