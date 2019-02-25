@@ -1,9 +1,10 @@
 import React from "react";
+import "./TodoFilterBar.css";
 
 function TodoFilterBar({ handleChange, filterBarValue }) {
   return (
     <form>
-      <div className="container input-group-sm mb-1">
+      <div className="input-group-sm mb-1">
         <input
           className="form-control"
           placeholder="Filter Task"

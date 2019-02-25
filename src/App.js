@@ -52,7 +52,7 @@ class App extends Component {
     const { data, inputBarValue, filterBarValue } = this.state;
     return (
       <div className="container">
-        <h1>Todo List</h1>
+        <h1 className="mt-4">Todo List</h1>
         <TodoCreationBar
           handleSubmit={this.handleCreateSubmit}
           handleChange={this.handleCreateChange}

@@ -9,7 +9,7 @@ function TodoItem({ name, isCompleted, handleClick, id }) {
   };
 
   return (
-    <div className="container">
+    <div>
       <li
         className={getClass(isCompleted)}
         // style={{ textDecoration: isCompleted && "line-through" }}

@@ -4,19 +4,18 @@ import TodoItem from "../TodoItem/TodoItem";
 export class TodoList extends Component {
   render() {
     const { data, handleClick, searchTerm } = this.props;
+    const filtering = item => item.name.includes(searchTerm);
     return (
       <ul className="list-group">
-        {data
-          .filter(item => item.name.includes(searchTerm))
-          .map(todo => (
-            <TodoItem
-              key={todo.id}
-              id={todo.id}
-              name={todo.name}
-              isCompleted={todo.isCompleted}
-              handleClick={handleClick}
-            />
-          ))}
+        {data.filter(filtering).map(todo => (
+          <TodoItem
+            key={todo.id}
+            id={todo.id}
+            name={todo.name}
+            isCompleted={todo.isCompleted}
+            handleClick={handleClick}
+          />
+        ))}
       </ul>
     );
   }

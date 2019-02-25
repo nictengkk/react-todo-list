@@ -3,7 +3,7 @@ import React from "react";
 function TodoCreationBar({ handleSubmit, handleChange, value }) {
   return (
     <form onSubmit={handleSubmit}>
-      <div className="container input-group mb-1">
+      <div className="input-group mb-1">
         <input
           className="form-control"
           placeholder="Create New Task"
